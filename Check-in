@@ -1,0 +1,46 @@
+class Restaurant:
+    def rewardPoints(self, order_amount, users_points=None):
+        list_of_items = {"Cheeseburger": 1500,
+                         "Small Fries": 1500,
+                         "Milkshake": 3000,
+                         "Hotdog": 3000,
+                         "Double Cheeseburger": 4500,
+                         "Large Fries": 4500,
+                         "Double CheeseBurger Meal": 6000}
+
+        reward_points = order_amount * 100
+        users_points = users_points + reward_points
+        if (users_points >= 1500):
+            answer = input("You have enough points to redeem for free items would like to redeem your points. (Yes/Not now)")
+            if answer == "Yes" or answer == "yes":
+                print("Here is a list of items that can be redeemed based on the number of points you have! (You can only redeem one item at a time)")
+                count =0
+                items = []
+                items_displayed=[]
+                price_displayed = []
+                for i in list_of_items.keys():
+                    items+=[i]
+                for price in list_of_items.values():
+                    if users_points == price or users_points>price:
+                        items_displayed.append(items[count])
+                        price_displayed.append(price)
+                        print(f"Item: {items[count]}; Price {price}")
+                        count = count+1
+                item_to_redeem = input("Which item would you like to redeem? (Yes/Changed my mind)")
+                if item_to_redeem == "Changed my mind":
+                    return
+                for item in items_displayed:
+                    if item_to_redeem == item:
+                        index = items_displayed.index(item)
+                        users_points = users_points - price_displayed[index]
+                        return users_points
+            else:
+                return
+
+
+
+
+
+if __name__ == "__main__":
+    r = Restaurant()
+    print(r.rewardPoints(35, 8430))
