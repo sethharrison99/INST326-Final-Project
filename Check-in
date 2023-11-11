@@ -44,3 +44,34 @@ class Restaurant:
 if __name__ == "__main__":
     r = Restaurant()
     print(r.rewardPoints(35, 8430))
+
+def placeOrder(customer, order, payment, restaurant):
+    try:
+        # Validate inputs
+        if not all(isinstance(obj, (Customer, Order, Payment, Restaurant)) for obj in (customer, order, payment, restaurant)):
+            raise ValueError("Invalid input types")
+
+        # Process the order
+        print(f"Processing order for {customer.name} at {restaurant.name}")
+
+        # Check inventory
+        for item in order.items:
+            if item not in restaurant.inventory or restaurant.inventory[item] == 0:
+                raise ValueError(f"{item} is not available in {restaurant.name}'s menu or is out of stock")
+
+        # Process payment
+        print(f"Processing payment of {payment.amount} {payment.method}")
+
+        # Update inventory
+        for item in order.items:
+            restaurant.inventory[item] -= 1
+
+        # Send order confirmation
+        print(f"Order confirmed for {customer.name}. Thank you!")
+
+        # Notify the customer (in a real application, this could involve sending an email or SMS)
+        print(f"Notifying {customer.name} about the order confirmation")
+
+    except ValueError as ve:
+        print(f"Order failed: {str(ve)}")
+
