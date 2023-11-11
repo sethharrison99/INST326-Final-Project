@@ -1,12 +1,9 @@
 class Restaurant:
     def rewardPoints(self, order_amount, users_points=None):
-        list_of_items = {"Cheeseburger": 1500,
-                         "Small Fries": 1500,
-                         "Milkshake": 3000,
+        list_of_items = {"Hamburger": 1500,
                          "Hotdog": 3000,
-                         "Double Cheeseburger": 4500,
-                         "Large Fries": 4500,
-                         "Double CheeseBurger Meal": 6000}
+                         "Salad": 1200,
+        }
 
         reward_points = order_amount * 100
         users_points = users_points + reward_points
@@ -37,8 +34,23 @@ class Restaurant:
             else:
                 return
 
-
-
+    def display_menu():
+        menu = {
+        "Hot Dog": 3.75,
+        "Hamburger": 4.99,
+        "Salad": 6.50,
+            
+        }
+    
+        for item, price in menu.items():
+            if item == "Hamburger":
+                choice = input(f"Would you like to add cheese to your {item}? (yes/no: ").strip().lower()
+                if choice == "yes":
+                    price += 0.99
+                
+            print(f"{item}: ${price:.2f}")
+        
+        return menu
 
 
 if __name__ == "__main__":
