@@ -23,7 +23,7 @@ class Restaurant:
                         price_displayed.append(price)
                         print(f"Item: {items[count]}; Price {price}")
                         count = count+1
-                item_to_redeem = input("Which item would you like to redeem? (Yes/Changed my mind)")
+                item_to_redeem = input("Which item would you like to redeem? (To cancel, type 'Changed my mind'")
                 if item_to_redeem == "Changed my mind":
                     return
                 for item in items_displayed:
