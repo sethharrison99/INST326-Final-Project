@@ -200,7 +200,47 @@ def rewardPoints(total_price):
     Technique(s): None claimed for this method.
     """
     points_per_dollar = 10
-    return math.floor(total_price * points_per_dollar)
+    # The list of items, and the corresponding price of the  item
+    list_of_items = {"Cheeseburger": 150,
+                            "Fries": 300,
+                            "Milkshake": 450}
+    #The reward points is calculated by multiplying the order amound by 100
+    reward_points =  math.floor(total_price * points_per_dollar)
+
+    #the user points is the points the user already has plus the reward points from the order
+    users_points = reward_points
+
+    print(f"You have {reward_points} reward points!")
+
+        #The cheapest reward item is 1500, so they are eligible to redeem their points if they have >= 1500 points
+    if (users_points >= 150):
+            answer = input(f"Hello, You have {users_points}, which enough points to redeem for free items would like to redeem your points. (Yes/Not now)")
+            if answer == "Yes" or answer == "yes":
+                    print("Here is a list of items that can be redeemed based on the number of points you have! (You can only redeem one item at a time)")
+                    count =0
+                    items = []
+                    items_displayed=[]
+                    price_displayed = []
+                    for i in list_of_items.keys():
+                        items+=[i]
+                    for price in list_of_items.values():
+                        if users_points == price or users_points>price:
+                            items_displayed.append(items[count])
+                            price_displayed.append(price)
+                            print(f"Item: {items[count]}; Price {price}")
+                            count = count+1
+                    item_to_redeem = input("Which item would you like to redeem? (Say the item or type 'Changed my mind')")
+                    if item_to_redeem == "Changed my mind":
+                        return
+                    for item in items_displayed:
+                        if item_to_redeem == item:
+                            index = items_displayed.index(item)
+                            users_points = users_points - price_displayed[index]
+                            print(f"You redeemed your points for the {item_to_redeem}, you now have {users_points} points left")
+                            return users_points
+            else:
+                    return
+
 
 def generate_order_id():
     """
@@ -225,7 +265,7 @@ def finalize_order(order):
     display_current_order(order)
     points_earned = rewardPoints(total_price)
     print(f"Total Price: ${total_price:.2f}")
-    print(f"Reward Points Earned: {points_earned} points")
+    print(f"Reward Points: {points_earned} points")
 
     dining_option = input("Choose your dining option (Dine-In/Pickup/Delivery): ")
     order_id = generate_order_id()
