@@ -36,7 +36,7 @@ If you choose to pickup the item, you are given a random order ID, which you wil
 | Method/function  | Primary author | Techniques demonstrated|
 | ------------- | ------------- | -----------------------------|
 | getMenu()  | Favour  | Dictionary of the menu|
-| getOptions()  | Favour  | Dictionary of food options|
+| getOptions()  | Ruchir  | Dictionary of food options|
 | display_menu()  | Seth  | F-strings containing expressions|
 |  customize_item  |  Ruchir  | Conditional expressions|
 |  add_to_order  |  Ruchir  | Sequence unpacking|
