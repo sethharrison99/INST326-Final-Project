@@ -9,6 +9,13 @@ class Restaurant:
         self.name=name
     
     def getMenu():
+        """ 
+        The sub options for specfic menu items
+        
+        Primary Student: Favour
+        Technique(s): Dictionary of the menue
+        """
+
 
         menu_items = {
             "Appetizers": {"Garlic Bread": 3.00, "Chicken Wings": 5.99, "Quesadilla": 4.00, "Nachos": 4.50, "Onion Rings": 2.99},
@@ -24,12 +31,15 @@ class Restaurant:
 
 
     def getOptions():
-        options = {
+         
         """ 
-        The sub options for specfic menu items
+        The sub options for specfic menu options
         
-        Ruchir
+        Primary Student: Favour
+        Technique(s): Dictionary of food options
         """
+        options = {
+       
             "Quesadilla": ["Chicken", "Cheese", "Steak"],
             "Nachos": ["Chicken", "No Chicken"],
             "Tacos": ["Steak", "Chicken", "Fish", "Shrimp", "Brown Beans", "Black Beans", "None"],
@@ -38,7 +48,7 @@ class Restaurant:
             "Milkshake": ["Cookies & Cream", "Vanilla", "Strawberry", "Chocolate"],
             "Ice Cream": ["Vanilla", "Chocolate", "Strawberry", "Mint Chocolate Chip", "Butter Pecan", "Rocky Road", "Cookie Dough", "Neapolitan", "Pistachio", "Salted Caramel"],
             "Cheesecake": ["New York Style", "Chocolate", "Strawberry", "Lemon", "Blueberry"]
-    }
+        }
         return options
     
     
@@ -86,14 +96,14 @@ class Restaurant:
         else:
             order[item] = order.get(item, 0) + 1
 
-    def greet_customer(self, name, greeting='Hello'):
+    def greet_customer(self, name):
         """
         Greets the customer with an optional greeting and name.
 
         Primary Student: Favour
         Technique(s): Optional parameters and/or keyword arguments
         """
-        print(f"{greeting}, {self.name}!")
+        print(f"Hello {self.name}!")
 
     def display_sorted_menu(self):
         """
@@ -343,12 +353,14 @@ class Restaurant:
 if __name__ == "__main__":
 
     r= Restaurant("JohnDoe")
-    print(r.greet_customer("JohnDoe"))
-    print(r.display_menu())
+    r.greet_customer("JohnDoe")
+    r.display_menu()
         
 
     options = Restaurant.getOptions()
     order = r.take_order(options)
     order_id, dining_option = r.finalize_order(order)
     final_status = Restaurant.orderStatusTracker(order_id, dining_option)
+
+
 
