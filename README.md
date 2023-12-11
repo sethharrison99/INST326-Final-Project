@@ -43,10 +43,11 @@ If you choose to pickup the item, you are given a random order ID, which you wil
 |  greet_customer  |  Favour  | Optional parameters and/or keyword arguments |
 |  display_sorted_menu  |  Seth  | Use of a key function with sorted()|
 |  validate_dining_option  |  Favour  | Regular expressions|
-|  customize_item  |  Seth  | Conditional expressions|
-|  add_to_order  |  Emerald  | Sequence unpacking|
+|  Order class __str__  |  Emerald  | Magic methods other than`__init__()`|
+|  find_items_by_feature  | Ruchir  | Comprehensions
+|  serialize_order  |  Favour  | Use of json.dumps() |
 |  validate_menu_item  |  Emerald  | None claimed for this method|
-|  take_order  |  Seth  | CNone claimed for this method|
+|  take_order  |  Seth  | None claimed for this method|
 |  display_current_order  |  Emerald  | None claimed for this method.|
 |  rewardPoints  |  Favour  | None claimed for this method.|
 |  generate_order_id  |  Favour  | None claimed for this method.|
